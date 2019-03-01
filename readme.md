@@ -6,11 +6,11 @@ very quick and dirty snapchat clone api
 
 ### Users
 
-```
-list all the users
+```js
+// list all the users
 
 GET /users \
--H Authorization: bearer access_token
+  -H Authorization: bearer access_token
 
 [{
 	id: Number,
@@ -18,40 +18,40 @@ GET /users \
 }]
 ```
 
-```
-create a new user
+```js
+// create a new user
 
 POST /users \
--H Content-Type: application/json \
--d { username: String }
+  -H Content-Type: application/json \
+  -d { username: String }
 ```
 
-```
-send a snap to a specific user
+```js
+// send a snap to a specific user
 
 POST /users/:id/snap \
--H Authorization: bearer access_token \
--F snap:@path/to/file
+  -H Authorization: bearer access_token \
+  -F snap:@path/to/file
 ```
 
 ### Snaps
 
-```
-list all the snaps for a user
+```js
+// list all the snaps for a user
 
 GET /snaps \
--H Authorization: bearer access_token
+  -H Authorization: bearer access_token
 
 [{
 	from: String,
-	url: URLString
+	url: String
 }]
 ```
 
-```
-get snap image file
+```js
+// get snap image file
 
 GET /snaps/:id \
--H Authorization: bearer access_token
+  -H Authorization: bearer access_token
 ```
 
