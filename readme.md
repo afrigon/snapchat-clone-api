@@ -6,7 +6,7 @@ very quick and dirty snapchat clone api
 
 ### Users
 
-```
+```curl
 list all the users
 
 GET /users \
@@ -18,7 +18,7 @@ GET /users \
 }]
 ```
 
-```
+```sh
 create a new user
 
 POST /users \
@@ -26,7 +26,7 @@ POST /users \
 -d { username: String }
 ```
 
-```
+```json
 send a snap to a specific user
 
 POST /users/:id/snap \
@@ -36,7 +36,7 @@ POST /users/:id/snap \
 
 ### Snaps
 
-```
+```js
 list all the snaps for a user
 
 GET /snaps \
