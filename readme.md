@@ -1,13 +1,15 @@
 # Snapchat clone API
 
+very quick and dirty snapchat clone api
+
 ## Endpoints
 
 ### Users
 
 ```
-// list all the users
+list all the users
 
-GET /users
+GET /users \
 -H Authorization: bearer access_token
 
 [{
@@ -19,16 +21,16 @@ GET /users
 ```
 create a new user
 
-POST /users
--H Content-Type: application/json
+POST /users \
+-H Content-Type: application/json \
 -d { username: String }
 ```
 
 ```
 send a snap to a specific user
 
-POST /users/:id/snap
--H Authorization: bearer access_token
+POST /users/:id/snap \
+-H Authorization: bearer access_token \
 -F snap:@path/to/file
 ```
 
@@ -37,7 +39,7 @@ POST /users/:id/snap
 ```
 list all the snaps for a user
 
-GET /snaps
+GET /snaps \
 -H Authorization: bearer access_token
 
 [{
@@ -49,7 +51,7 @@ GET /snaps
 ```
 get snap image file
 
-GET /snaps/:id
+GET /snaps/:id \
 -H Authorization: bearer access_token
 ```
 
