@@ -81,7 +81,7 @@ function registerRoutes () {
 	app.get('/snaps/:id', auth, (req, res) => {
 		const snap = req.user.snaps.find(n => n.id == req.params.id)
 		if (!snap) return res.status(404).send(`Can\'t find snap with id ${req.params.id}`)
-		const image = new Buffer(snap.data, 'base64')
+		const image = Buffer.from(snap.data, 'base64')
 
 		// delete the snap after it was downloaded
 		const index = req.user.snaps.findIndex(n => n.id == req.params.id)
