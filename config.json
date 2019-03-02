@@ -1,7 +1,7 @@
 {
-	"port": 1337,
+	"port": 9000,
 	"host": "0.0.0.0",
 	"dbFile": "data.json",
-	"snapUrl": "http://localhost:1337/snaps"
+	"snapUrl": "http://snapchat.frigon.dev/snaps"
 }
 
