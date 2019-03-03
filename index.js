@@ -37,7 +37,7 @@ function dbInit () {
 function registerRoutes () {
     console.log('- configuring api endpoints')
 
-    console.log('    GET /users')
+    console.log('    GET  /users')
     app.get('/users', auth, (req, res) => (
         res.json(users.data.map(n => ({
             username: n.username,
@@ -59,7 +59,7 @@ function registerRoutes () {
     console.log('    POST /users/:id/snap')
     app.post('/users/:id/snap', auth, (req, res) => {
         const imageData = req.files.snap.data.toString('base64')
-        const recipient = users.findOne({ '$loki': req.params.id })
+        const recipient = users.get(req.params.id)
 
         if (!recipient) { return res.status(404).send("recipient not found in database") }
 
@@ -72,7 +72,7 @@ function registerRoutes () {
         return res.status(204).send()
     })
 
-    console.log('    GET /snaps')
+    console.log('    GET  /snaps')
     app.get('/snaps', auth, (req, res) => {
         return res.json(req.user.snaps.map(n => ({
             from: n.from,
@@ -80,7 +80,7 @@ function registerRoutes () {
         })))
     })
 
-    console.log('    GET /snaps/:id')
+    console.log('    GET  /snaps/:id')
     app.get('/snaps/:id', auth, (req, res) => {
         const snap = req.user.snaps.find(n => n.id == req.params.id)
         if (!snap) return res.status(404).send(`Can\'t find snap with id ${req.params.id}`)
