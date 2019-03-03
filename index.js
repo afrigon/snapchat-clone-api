@@ -103,7 +103,7 @@ function auth (req, res, next) {
     const header = req.header('Authorization')
     if (!header) return res.status(401).send('Must send Authorization type bearer')
 
-    const components = header.split('bearer ')
+    const components = header.split('Bearer ')
     if (components.length != 2) return res.status(401).send('Malformed Authorization header')
 
     const access_token = components[1]
