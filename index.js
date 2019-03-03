@@ -59,7 +59,10 @@ function registerRoutes () {
     console.log('    POST /users/:id/snap')
     app.post('/users/:id/snap', auth, (req, res) => {
         const imageData = req.files.snap.data.toString('base64')
-        const recipient = users.findOne(req.params.id)
+        const recipient = users.findOne({ '$loki': req.params.id })
+
+        if (!recipient) { return res.status(404).send("recipient not found in database") }
+
         recipient.snaps.push({
             id: uuid(),
             from: req.user['$loki'],
