@@ -10,7 +10,7 @@ very quick and dirty snapchat clone api
 // list all the users
 
 GET /users \
-  -H Authorization: bearer access_token
+  -H Authorization: Bearer access_token
 
 [{
 	id: Number,
@@ -30,7 +30,7 @@ POST /users \
 // send a snap to a specific user
 
 POST /users/:id/snap \
-  -H Authorization: bearer access_token \
+  -H Authorization: Bearer access_token \
   -F snap:@path/to/file
 ```
 
@@ -40,7 +40,7 @@ POST /users/:id/snap \
 // list all the snaps for a user
 
 GET /snaps \
-  -H Authorization: bearer access_token
+  -H Authorization: Bearer access_token
 
 [{
 	from: String,
@@ -52,6 +52,6 @@ GET /snaps \
 // get snap image file
 
 GET /snaps/:id \
-  -H Authorization: bearer access_token
+  -H Authorization: Bearer access_token
 ```
 
